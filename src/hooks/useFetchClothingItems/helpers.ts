@@ -7,27 +7,27 @@ import { ClothingId, IClothingDict } from "../../types/store/slice.types";
 const createSetClothingListActionPayload = (rawData: ClothingDataItem[]): SetClothingListActionPayload => {
     const clothingListDict: IClothingDict = {};
 
-    const shirts = new Set<ClothingId>([])
-    const pants = new Set<ClothingId>([])
-    const shoes = new Set<ClothingId>([])
+    const shirts: ClothingId[] = []
+    const pants: ClothingId[] = []
+    const shoes: ClothingId[] = []
 
 
     rawData.forEach(rawDataItem => {
         const { id, ...values } = rawDataItem;
         clothingListDict[id] = { ...values }
 
-        // adding clothing item id to proper set by type
+        // adding clothing item id to proper array by type
         switch (rawDataItem.type) {
             case ClothingTypes.Shirt:
-                shirts.add(String(id))
+                shirts.push(String(id))
                 return;
 
             case ClothingTypes.Pants:
-                pants.add(String(id))
+                pants.push(String(id))
                 return;
 
             case ClothingTypes.Shoes:
-                shoes.add(String(id))
+                shoes.push(String(id))
                 return;
 
             default:

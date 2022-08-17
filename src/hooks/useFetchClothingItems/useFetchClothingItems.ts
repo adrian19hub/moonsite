@@ -14,7 +14,9 @@ const useFetchClothingItems = () => {
   useEffect(() => {
     if (data && !loading && !error) {
       dispatch(setClothingListAction(helpers.createSetClothingListActionPayload(data)))
+      return;
     }
+    console.log(loading, error)
   }, [data, dispatch, error, loading])
 
   return { loading, error }
