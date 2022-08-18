@@ -1,3 +1,8 @@
+Running the project instructions:
+  1. Clone the repository
+  2. npm i to install the dependencies.
+  3. npm start
+
 Programming hours - 3.5;
 Planning hours - 3
 
