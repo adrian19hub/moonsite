@@ -6,11 +6,11 @@ import Home from './screens/Home/Home.index';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import CircularProgress from '@mui/material/CircularProgress';
 import NavBar from './components/AppBar/AppBar.index';
-import SavedOutfits from './screens/Home/SavedOutfits/SavedOutfits.index';
+import SavedOutfits from './screens/SavedOutfits/SavedOutfits.index';
 
 enum Screens {
-  Home = "מסך הבית",
-  SavedOutfits = 'מסך פריטי לבוש'
+  Home = 'home',
+  SavedOutfits = 'SavedOutfits'
 }
 
 const renderCurrScreen = (currScreen: Screens) => {
@@ -24,12 +24,13 @@ const renderCurrScreen = (currScreen: Screens) => {
 
 function App() {
   const { loading } = useFetchClothingItems();
-  const [currScreen, setCurrScreen] = useState(Screens.SavedOutfits);
+  const [currScreen, setCurrScreen] = useState(Screens.Home);
 
   return (
     <div className="App">
       <NavBar currScreen={currScreen} />
-      {loading ? <CircularProgress /> :
+      {loading ?
+        <CircularProgress /> :
         renderCurrScreen(currScreen)
       }
     </div >

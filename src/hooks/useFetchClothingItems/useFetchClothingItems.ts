@@ -9,17 +9,17 @@ const URL = "https://run.mocky.io/v3/2d06d2c1-5a77-4ecd-843a-53247bcb0b94";
 
 const useFetchClothingItems = () => {
   const dispatch = useAppDispatch();
-  const { data, loading, error } = useFetch<ClothingDataItem[]>(URL, []);
+  const { data, loading } = useFetch<ClothingDataItem[]>(URL, []);
 
   useEffect(() => {
-    if (data && !loading && !error) {
+    if (data && !loading) {
       dispatch(setClothingListAction(helpers.createSetClothingListActionPayload(data)))
       return;
     }
-    console.log(loading, error)
-  }, [data, dispatch, error, loading])
+    console.log(loading)
+  }, [data, dispatch, loading])
 
-  return { loading, error }
+  return { loading }
 };
 
 export default useFetchClothingItems
