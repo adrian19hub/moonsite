@@ -14,6 +14,7 @@ const createSetClothingListActionPayload = (rawData: ClothingDataItem[]): SetClo
 
     rawData.forEach(rawDataItem => {
         const { id, ...values } = rawDataItem;
+        // Creating outfits dictionary by item id
         clothingListDict[id] = { ...values }
 
         // adding clothing item id to proper array by type

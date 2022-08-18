@@ -1,4 +1,3 @@
-import { LocalDining } from '@mui/icons-material';
 import React, { useState } from 'react';
 import './App.css';
 import useFetchClothingItems from './hooks/useFetchClothingItems/useFetchClothingItems';
@@ -7,14 +6,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import CircularProgress from '@mui/material/CircularProgress';
 import NavBar from './components/AppBar/AppBar.index';
 import SavedOutfits from './screens/SavedOutfits/SavedOutfits.index';
+import { ScreensNames } from './types/screen.types';
 
-enum Screens {
-  Home = 'home',
-  SavedOutfits = 'SavedOutfits'
-}
 
-const renderCurrScreen = (currScreen: Screens) => {
-  if (currScreen === Screens.Home) {
+
+const renderCurrScreen = (currScreen: ScreensNames) => {
+  if (currScreen === ScreensNames.Home) {
     return <Home />
   }
 
@@ -24,7 +21,7 @@ const renderCurrScreen = (currScreen: Screens) => {
 
 function App() {
   const { loading } = useFetchClothingItems();
-  const [currScreen, setCurrScreen] = useState(Screens.Home);
+  const [currScreen, setCurrScreen] = useState(ScreensNames.Home);
 
   return (
     <div className="App">
