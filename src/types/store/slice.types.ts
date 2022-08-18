@@ -1,6 +1,6 @@
 import { IClothing } from "../common.types";
 
-type ClothingId = string;
+export type ClothingId = string;
 
 export interface IClothingDict {
     [key: ClothingId]: IClothing
@@ -16,7 +16,11 @@ export interface IOutfit {
     timeToCreateInMinutes: number
 }
 
-export interface IClothingIdsByType { shirts: Set<ClothingId>, pants: Set<ClothingId>, shoes: Set<ClothingId> }
+export interface IClothingIdsByType {
+    shirts: Array<ClothingId>,
+    pants: Array<ClothingId>,
+    shoes: Array<ClothingId>
+}
 
 
 export interface ClothingSliceState {

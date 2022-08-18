@@ -1,4 +1,4 @@
-enum ClothingTypes {
+export enum ClothingTypes {
     Shoes = 'shoes',
     Shirt = 'shirt',
     Pants = 'pants'
